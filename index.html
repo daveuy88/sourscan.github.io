@@ -12,14 +12,14 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      color: #333;
       background: #fdfdfd;
-      line-height: 1.6;
+      color: #333;
     }
 
+    /* Header */
     header {
-      background: #1e293b;
-      padding: 1rem 2rem;
+      background: #0f172a;
+      padding: 0.8rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -27,26 +27,23 @@
       top: 0;
       z-index: 1000;
     }
-    header .logo a {
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-decoration: none;
+    header .logo img {
+      height: 40px;
+      vertical-align: middle;
     }
     header .logo span {
       color: #22c55e;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
     }
 
-    nav {
-      background: #0f172a;
-    }
     nav ul {
       margin: 0;
       padding: 0;
       list-style: none;
       display: flex;
-      justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
     }
     nav a {
       color: #fff;
@@ -58,36 +55,50 @@
       color: #22c55e;
     }
 
+    /* Banner Carousel */
     .banner {
       position: relative;
       overflow: hidden;
+      height: 90vh;
     }
-    .banner article {
-      position: relative;
-      text-align: center;
-      color: #fff;
-    }
-    .banner img {
+    .slide {
+      position: absolute;
+      top: 0; left: 0;
       width: 100%;
-      height: auto;
-      filter: brightness(60%);
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(65%);
       animation: zoomIn 15s infinite alternate;
     }
+
     .banner .inner {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      max-width: 800px;
+      padding: 1rem;
       animation: fadeUp 1.5s ease;
     }
     .banner h2 {
       font-size: 2.5rem;
-      margin: 0.5rem 0;
+      margin-bottom: 0.5rem;
     }
     .banner p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
     }
 
     @keyframes fadeUp {
@@ -99,6 +110,7 @@
       to { transform: scale(1.1); }
     }
 
+    /* Content Sections */
     .wrapper {
       padding: 4rem 2rem;
       background: #f8fafc;
@@ -151,6 +163,7 @@
       transform: scale(1.05);
     }
 
+    /* Footer */
     footer {
       background: #0f172a;
       color: #fff;
@@ -188,28 +201,43 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <a href="index.html">APP <span>SOURSCAN</span></a>
+      <img src="images/iconx.ico" alt="Logo">
+      <span>SourScan</span>
     </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generic.html">Generic</a></li>
+        <li><a href="elements.html">Elements</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Nav -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="generic.html"></a></li>
-      <li><a href="elements.html"></a></li>
-    </ul>
-  </nav>
-
-  <!-- Banner -->
+  <!-- Banner Carousel -->
   <section class="banner">
-    <article>
+    <div class="slide active">
       <img src="images/slide01.jpg" alt="">
       <div class="inner">
-        <p>Identify and diagnose soursop leaf diseases quickly with our advanced machine learning algorithm. Get real-time results to protect your crops.</p>
+        <p>Identify and diagnose soursop leaf diseases quickly with our advanced machine learning algorithm.</p>
         <h2>Accurate Disease Detection</h2>
       </div>
-    </article>
+    </div>
+
+    <div class="slide">
+      <img src="images/slide02.jpg" alt="">
+      <div class="inner">
+        <p>Designed for ease of use, SourScan lets you upload leaf images and get results in seconds.</p>
+        <h2>User-Friendly Interface</h2>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="images/slide04.png" alt="">
+      <div class="inner">
+        <p>Upload images effortlessly and get instant, accurate analysis to monitor your crops.</p>
+        <h2>Seamless Upload & Analysis</h2>
+      </div>
+    </div>
   </section>
 
   <!-- One -->
@@ -220,8 +248,8 @@
         <img src="images/pic02bg.png" alt="">
         <div class="content">
           <h3>SourScan – Leaf Disease Detection</h3>
-          <p>SourScan helps farmers detect diseases in soursop leaves using AI-powered image analysis.</p>
-          <a class="button" href="https://drive.google.com/uc?export=download&id=1koTfScWGQnpo24isQonpnEI0TwLzpLlc" download>Download SourScan App</a>
+          <p>A smart app for farmers and researchers to detect soursop leaf diseases using AI.</p>
+          <a class="button" href="https://drive.google.com/uc?export=download&id=1koTfScWGQnpo24isQonpnEI0TwLzpLlc" download>Download App</a>
         </div>
       </div>
 
@@ -229,7 +257,7 @@
         <img src="images/pic03bg.png" alt="">
         <div class="content">
           <h3>Survey Section</h3>
-          <p>Help us improve SourScan by answering a quick usability survey after testing the app.</p>
+          <p>Help us improve SourScan by completing a quick usability survey.</p>
           <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdoVShPyyQ9FBCo_djLqtK0y01o4ooeUbvkV7ezKKEVmiq3GA/viewform?usp=dialog">Take Survey</a>
         </div>
       </div>
@@ -251,6 +279,19 @@
     &copy; <script>document.write(new Date().getFullYear());</script> Created by Dandy Dalina. All rights reserved.
   </div>
 
+  <!-- Carousel Script -->
+  <script>
+    let slides = document.querySelectorAll(".slide");
+    let index = 0;
+
+    function showNextSlide() {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }
+
+    setInterval(showNextSlide, 6000); // change every 6s
+  </script>
+
 </body>
 </html>
-
